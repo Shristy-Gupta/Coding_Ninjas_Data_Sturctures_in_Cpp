@@ -26,27 +26,24 @@ Sample Output 3 :
 
 
 /********************************************************** SOLUTION ****************************************************************/
-
-
-
-node *reverse_linked_list(node *head) {
+Node *reverse_linked_list(Node *head) {
     if(head==NULL||head->next==NULL)
         return head;
-    node* smallhead=reverse_linked_list(head->next);
+    Node* smallhead=reverse_linked_list(head->next);
     head->next->next=head;
     head->next=NULL;
     return smallhead;
 }
-node* kReverse(node*head,int n) { 
-    if(n==1)
+Node* kReverse(Node*head,int n) { 
+    if(n<=1)
         return head;
     int i=1;
-    node*temp=head,*head1=head,*head2=head;
+    Node*temp=head,*head1=head,*head2=head;
     while(temp!=NULL) {
         if(i%n==0||temp->next==NULL) { 
-            node*head3=temp->next;
+            Node*head3=temp->next;
             temp->next=NULL;
-            node*h=head2; head2=reverse_linked_list(head2);
+            Node*h=head2; head2=reverse_linked_list(head2);
             if(head1==head){
                 head1=head2;
                 head=head2;
@@ -65,6 +62,44 @@ node* kReverse(node*head,int n) {
     }
     return head;
 }
+
+
+// node *reverse_linked_list(node *head) {
+//     if(head==NULL||head->next==NULL)
+//         return head;
+//     node* smallhead=reverse_linked_list(head->next);
+//     head->next->next=head;
+//     head->next=NULL;
+//     return smallhead;
+// }
+// node* kReverse(node*head,int n) { 
+//     if(n==1)
+//         return head;
+//     int i=1;
+//     node*temp=head,*head1=head,*head2=head;
+//     while(temp!=NULL) {
+//         if(i%n==0||temp->next==NULL) { 
+//             node*head3=temp->next;
+//             temp->next=NULL;
+//             node*h=head2; head2=reverse_linked_list(head2);
+//             if(head1==head){
+//                 head1=head2;
+//                 head=head2;
+//             }
+//             else 
+//                 head1->next=head2;
+//             h->next=head3;
+//             head1=h;
+//             head2=head3;
+//             temp=head3;
+//         } 
+//         else{
+//             temp=temp->next;
+//         }
+//         i++;
+//     }
+//     return head;
+// }
 
 /*
 node *reverse_linked_list(node *head) {
