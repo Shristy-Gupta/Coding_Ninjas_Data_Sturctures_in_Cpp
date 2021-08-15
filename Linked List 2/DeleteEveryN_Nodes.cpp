@@ -55,11 +55,12 @@ Node *skipMdeleteN(Node *head, int M, int N)
 
 
 
-node* skipMdeleteN(node  *head, int M, int N) {
-    // Write your code here
+Node *skipMdeleteN(Node *head, int M, int N)
+{
+	 // Write your code here
     if(M==0)
         return NULL;
-    node *curr = head, *t;  
+    Node *curr = head, *t;  
     int count;  
     // The main loop that traverses 
     // through the whole list  
@@ -75,7 +76,7 @@ node* skipMdeleteN(node  *head, int M, int N) {
         t = curr -> next;  
         for (count = 1; count <= N && t != NULL; count++)  
         {  
-            node *temp = t;  
+            Node *temp = t;  
             t = t -> next;  
             free(temp);  
         }  
